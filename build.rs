@@ -1,13 +1,9 @@
-
 fn main() {
     // Build auth.proto
     tower_grpc_build::Config::new()
         .enable_server(true)
         .enable_client(true)
-        .build(
-            &["proto/auth.proto"],
-            &["proto/"],
-        )
+        .build(&["proto/auth.proto"], &["proto/"])
         .unwrap_or_else(|e| panic!("protobuf compilation failed: {}", e));
 
     // Build kv.proto
@@ -21,9 +17,6 @@ fn main() {
     tower_grpc_build::Config::new()
         .enable_server(true)
         .enable_client(true)
-        .build(
-            &["proto/rpc.proto"],
-            &["proto"],
-        )
+        .build(&["proto/rpc.proto"], &["proto"])
         .unwrap_or_else(|e| panic!("protobuf compilation failed: {}", e));
 }
