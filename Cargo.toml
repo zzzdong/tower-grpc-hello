@@ -12,8 +12,7 @@ env_logger = { version = "0.6", default-features = false }
 log = "0.4"
 http = "0.1"
 prost = "0.5"
-tokio = "0.1"
-# tokio = { version = "0.1.19", features = ["async-await-preview"] }
+tokio = { git = "https://github.com/tokio-rs/tokio", features = ["async-await-preview"] }
 tower-request-modifier = { git = "https://github.com/tower-rs/tower-http" }
 tower-hyper = { git = "https://github.com/tower-rs/tower-hyper" }
 hyper = "0.12"
