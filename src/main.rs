@@ -40,7 +40,7 @@ fn main() {
     let dst = Destination::try_from_uri(uri.clone()).unwrap();
     let connector = util::Connector::new(HttpConnector::new(4));
     let settings = client::Builder::new().http2_only(true).clone();
-    let mut make_client = client::Connect::new(connector, settings);
+    let mut make_client = client::Connect::with_builder(connector, settings);
 
     let say_hello = make_client
         .make_service(dst)
@@ -128,7 +128,7 @@ impl KvClient {
 
         let connector = util::Connector::new(HttpConnector::new(4));
         let settings = client::Builder::new().http2_only(true).clone();
-        let mut make_client = client::Connect::new(connector, settings);
+        let mut make_client = client::Connect::with_builder(connector, settings);
 
         Either::B(
             make_client
